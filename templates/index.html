@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+
+{% block title %} Leave Management {% endblock %}
+
+
+
+{% block page %}
+    <div class="col-lg-offset-0.1 col-lg-10">
+        <div class="panel">
+            <div class="panel-heading bg-gray">
+                <h2 class="panel-title text-center text-white">
+                    Apply For Leave 
+                </h2>
+
+                  <button class="btn">
+                <a href="{% url 'logout' %}">Logout</a>
+            </button>
+
+            </div>
+            <div class="panel-body">
+
+
+               <form method="post" novalidate>
+                  {% csrf_token %}
+
+                  {{ form|as_bootstrap }}
+
+                  {{ form.days.as_hidden }}
+                    <button type="submit" onclick="myfunc()" class="btn btn-primary">
+                      Submit
+                    </button>
+
+                    </form>
+                             
+          
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+  $(function() {
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "2018:2050",
+      format: '%m/%d/%Y',
+
+      // You can put more options here.
+
+    });
+  });
+  </script>
+<script type="text/javascript">
+  function myfunc(){
+
+    var start = $('#id_start_date').val();
+    var end = $('#id_end_date').val();
+    var diff = new Date(end - start);
+    var days = diff/1000/60/60/24;
+    $("id_days").val(days);
+
+}
+</script>
+{% endblock %}

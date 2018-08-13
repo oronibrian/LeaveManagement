@@ -1,0 +1,13 @@
+{% extends 'base_signup.html' %}
+{% load bootstrap3 %}
+
+{% block title %}Login{% endblock %}
+{% block heading %}LogIn{% endblock %}
+
+{% block content %}
+    <form method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+    </form>
+{% endblock %}
