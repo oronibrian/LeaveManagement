@@ -27,8 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Leave',
-    'social_django',
-    'rest_framework_social_oauth2',
     'django_forms_bootstrap',
     'rest_framework',
     'corsheaders',
